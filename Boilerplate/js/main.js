@@ -23,3 +23,25 @@ console.log('Before setting attribute : ', song.validationError);
 song.set('p', 'p');
 console.log('After setting attribute : ', song.isValid());
 console.log('After setting attribute : ', song.validationError);
+
+
+//inheritance
+var Animal = Backbone.Model.extend({
+    eat: function() {
+        console.log("animal is eating");
+    }
+});
+
+//inheriting animal
+var Bat = Animal.extend({
+    eat: function() {
+        Animal.prototype.eat.apply(this);
+        console.log("bat is eating");
+    }
+});
+
+// var animal = new Animal();
+// animal.eat();
+
+var bat = new Bat();
+bat.eat();
